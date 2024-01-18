@@ -2,7 +2,7 @@
 -- SQL script that creates a trigger that decreases the quantity
 
 DROP TRIGGER IF EXISTS upte_item;
-DEL $$ ;
+DELIMITER $$ ;
 
 CREATE TRIGGER upte_item BEFORE INSERT ON orders
 FOR EACH ROW
@@ -12,4 +12,4 @@ BEGIN
     WHERE name = NEW.item_name;
 END; $$
 
-DEL ; $$
+DELIMITER ; $$
