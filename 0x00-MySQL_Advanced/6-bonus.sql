@@ -2,8 +2,8 @@
 -- SQL script that creates a stored procedure AddBonus
 
 DELIMITER $$ ;
-DROP PROCEDURE IF EXISTS AddBns;
-CREATE PROCEDURE AddBns(
+DROP PROCEDURE IF EXISTS AddBonus;
+CREATE PROCEDURE AddBonus(
     IN user_id INT,
     IN project_name VARCHAR(255),
     IN score FLOAT
