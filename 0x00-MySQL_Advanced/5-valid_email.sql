@@ -1,7 +1,7 @@
 -- Email validation to sent
 -- SQL script that creates a trigger that resets the attribute valid_email
 
-DEL $$ ;
+DELIMITER $$ ;
 
 DROP TRIGGER IF EXISTS rest_mail_val;
 CREATE TRIGGER rest_mail_val BEFORE UPDATE ON users
@@ -12,4 +12,4 @@ BEGIN
     END IF;
 END; $$
 
-DEL ; $$
+DELIMITER ; $$
