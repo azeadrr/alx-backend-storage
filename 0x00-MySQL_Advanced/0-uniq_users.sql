@@ -1,5 +1,5 @@
 --We are all unique!
----SQL script that creates a table users
+--SQL script that creates a table users
 
 CREATE TABLE IF NOT EXISTS `users` (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
