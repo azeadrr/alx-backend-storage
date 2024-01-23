@@ -1,34 +1,27 @@
 #!/usr/bin/env python3
-"""
-Provide some stats about Nginx logs stored in MongoDB
-Database: logs, Collection: nginx, Display same as example
-first line: x logs, x number of documents in this collection
-second line: Methods
-5 lines with method = ["GET", "POST", "PUT", "PATCH", "DELETE"]
-one line with method=GET, path=/status
-"""
+"""Log stats"""
 from pymongo import MongoClient
 
 
 def log_stats(mongo_collection, option=None):
-    """
-    Provide some stats about Nginx logs stored in MongoDB
+    """script that provides some stats
+    about Nginx logs stored in MongoDB
     """
     METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     items = {}
     if option:
-        value = mongo_collection.count_documents(
+        vl = mongo_collection.count_documents(
             {"method": {"$regex": option}})
-        print(f"\tmethod {option}: {value}")
+        print(f"\tmethod {option}: {vl}")
         return
 
-    result = mongo_collection.count_documents(items)
-    print(f"{result} logs")
+    rslt = mongo_collection.count_documents(items)
+    print(f"{rslt} logs")
     print("Methods:")
     for method in METHODS:
         log_stats(nginx_collection, method)
-    status_check = mongo_collection.count_documents({"path": "/status"})
-    print(f"{status_check} status check")
+    stts_check = mongo_collection.count_documents({"path": "/status"})
+    print(f"{stts_check} status check")
 
 
 if __name__ == "__main__":
