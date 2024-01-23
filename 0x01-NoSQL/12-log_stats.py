@@ -20,8 +20,8 @@ def log_stats(mongo_collection, option=None):
     print("Methods:")
     for method in METHODS:
         log_stats(nginx_collection, method)
-    stts_check = mongo_collection.count_documents({"path": "/status"})
-    print(f"{stts_check} status check")
+    status_check = mongo_collection.count_documents({"path": "/status"})
+    print(f"{status_check} status check")
 
 
 if __name__ == "__main__":
