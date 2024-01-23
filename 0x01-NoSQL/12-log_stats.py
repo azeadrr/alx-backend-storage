@@ -10,9 +10,9 @@ def log_stats(mongo_collection, option=None):
     METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     items = {}
     if option:
-        vl = mongo_collection.count_documents(
+        value = mongo_collection.count_documents(
             {"method": {"$regex": option}})
-        print(f"\tmethod {option}: {vl}")
+        print(f"\tmethod {option}: {value}")
         return
 
     rslt = mongo_collection.count_documents(items)
