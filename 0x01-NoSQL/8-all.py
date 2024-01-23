@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""8- lists all docs using py"""
+"""List all documents in Python"""
 
 
 def list_all(mongo_collection):
-    """lists all docs in a collection"""
+    """function lists all docs in a collection"""
     return list(mongo_collection.find())
