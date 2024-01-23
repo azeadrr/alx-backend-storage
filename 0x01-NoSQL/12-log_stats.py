@@ -4,8 +4,8 @@ from pymongo import MongoClient
 
 
 def log_stats(mongo_collection, option=None):
-    """script that provides some stats
-    about Nginx logs stored in MongoDB
+    """
+    Provide some stats about Nginx logs stored in MongoDB
     """
     METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     items = {}
@@ -15,8 +15,8 @@ def log_stats(mongo_collection, option=None):
         print(f"\tmethod {option}: {value}")
         return
 
-    rslt = mongo_collection.count_documents(items)
-    print(f"{rslt} logs")
+    result = mongo_collection.count_documents(items)
+    print(f"{result} logs")
     print("Methods:")
     for method in METHODS:
         log_stats(nginx_collection, method)
